@@ -1,0 +1,1 @@
+import {redirect} from 'next/navigation'; import {getSession,can,SessionUser} from './auth'; export async function requireAdmin(area='dashboard'):Promise<SessionUser>{const session=await getSession();if(!session)redirect('/admin/login');if(!can(session.role,area))redirect('/admin/dashboard?denied=1');return session}

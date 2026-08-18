@@ -1,0 +1,1 @@
+import {AdminShell} from '@/components/admin'; import {requireAdmin} from '@/lib/admin'; export default async function CrmLayout({children}:{children:React.ReactNode}){const user=await requireAdmin();return <AdminShell user={user}>{children}</AdminShell>}
